@@ -199,6 +199,7 @@ static char lensFragmentShader[] =
 	"		w = x1*x1 + x2*x2;\n"
 	"	} while (w >= 1.);\n"
 
+    	"	if(w < 0.00001)  w = 0.00001;\n" //prevent w==0 which causes division by zero 
 	"	w = sqrt( -(2.*log(w)) / w );\n"
 	"	return x1*w; // or x2*w\n"
 	"}\n"
